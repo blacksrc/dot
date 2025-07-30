@@ -16,7 +16,6 @@ log_success "OS has been updated"
 
 log_info "Installing initial dependencies..."
 apt install -y wget curl
-snap install bun-js
 log_success "Initial dependencies have been installed"
 
 

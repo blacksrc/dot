@@ -10,6 +10,9 @@ sudo bash "$(dirname "$0")/intro.sh"
 # log_info "Running init.sh (System update & dependencies)..."
 # sudo bash "$(dirname "$0")/init.sh"
 
+# log_info "Running bun.sh (Install bun-js)..."
+# sudo bash "$(dirname "$0")/apps/bun.sh"
+
 # log_info "Running zen-browser.sh (Zen installation)..."
 # sudo bash "$(dirname "$0")/apps/zen-browser.sh"
 
