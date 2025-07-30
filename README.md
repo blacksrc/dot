@@ -27,7 +27,8 @@ This project installs and configures essential tools and applications such as Oh
 │   ├── nvm.sh
 │   ├── omz.sh
 │   ├── vscode.sh
-│   └── zen-browser.sh
+│   ├── zen-browser.sh
+│   └── ...
 ├── init.sh                # System update & dependency install
 ├── install.sh             # Main install entrypoint
 ├── intro.sh               # Welcome and info prompt
@@ -77,6 +78,7 @@ You will be prompted before any removal.
 - **VSCode** (`apps/vscode.sh`): Adds Microsoft repo and installs VSCode.
 - **Zen Browser** (`apps/zen-browser.sh`): Downloads and installs Zen Browser.
 - **Git Setup** (`apps/git-setup.sh`): Configures Git user info and SSH keys.
+- **bun-js** (`apps/bun.sh`)
 
 ---
 
@@ -95,3 +97,8 @@ All scripts use the logging functions in `utils.sh`:
 - Adjust install steps in `install.sh` as needed.
 
 ---
+
+## TODO
+ - [ ] lazygit
+ - [ ] docker
+ - [ ] lazydocker

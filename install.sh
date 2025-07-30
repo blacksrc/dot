@@ -22,6 +22,11 @@ sudo bash "$(dirname "$0")/intro.sh"
 # log_info "Running nvm.sh (NVM installation)..."
 # sudo bash "$(dirname "$0")/apps/nvm.sh"
 
+# log_info "Running steam.sh (Steam installation)..."
+# sudo bash "$(dirname "$0")/apps/steam.sh"
+
+# log_info "Running telegram.sh (Telegram installation)..."
+# sudo bash "$(dirname "$0")/apps/telegram.sh"
 
 # log_info "Running omz.sh (Oh My Zsh installation)..."
 # sudo -u "$target_user" bash "$(dirname "$0")/apps/omz.sh"
