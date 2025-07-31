@@ -24,7 +24,7 @@ log_info "⬇️ Downloading Obsidian from $DOWNLOAD_URL..."
 curl -L "$DOWNLOAD_URL" -o "$TEMP_DEB"
 
 log_info "⚙️ Installing Obsidian..."
-dpkg -i "$TEMP_DEB" || apt-get install -f -y
+dpkg -i "$TEMP_DEB" || apt install -f -y
 
 log_info "🧹 Cleaning up temporary files..."
 rm -f "$TEMP_DEB"
