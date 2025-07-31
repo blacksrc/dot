@@ -9,10 +9,6 @@ if [[ "$EUID" -ne 0 ]]; then
   exit 1
 fi
 
-log_info "Installing dependencies for NVM..."
-apt install -y curl ca-certificates
-log_success "Dependencies installed"
-
 log_info "Installing latest version of NVM globally..."
 export NVM_DIR="/usr/local/nvm"
 mkdir -p "$NVM_DIR"
