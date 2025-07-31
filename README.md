@@ -9,7 +9,7 @@ This project installs and configures essential tools and applications such as Oh
 
 ## Table of Contents
 
-- [dot](#dot)
+- [dot (WIP)](#dot-wip)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Directory Structure](#directory-structure)
@@ -42,6 +42,7 @@ This project installs and configures essential tools and applications such as Oh
 ```
 .
 ├── apps/                  # App-specific install scripts
+│   ├── apps.json          # List of apps to install
 │   ├── git-setup.sh
 │   ├── bun.sh
 │   ├── nvm.sh
@@ -118,8 +119,8 @@ These provide clear, color-coded, and emoji-enhanced output for better readabili
   Place your install/uninstall scripts in the `apps/` directory. Each script should be executable and follow the existing conventions.
 - **Control Uninstallation:**  
   Edit the `APPS` array in `uninstall.sh` to control what gets uninstalled.
-- **Modify Install Steps:**  
-  Adjust the order or selection of apps in `install.sh` as needed.
+- **Register your app:**  
+  Add your app to `apps/apps.json` to include it in the installation process.
 
 ---
 
@@ -138,7 +139,7 @@ MIT License. See [LICENSE](LICENSE).
 
 ## TODO
 
-- [ ] Make installation script dynamic
+- [x] Make installation script dynamic
 - [ ] Add lazygit support
 - [ ] Add lazydocker support
 - [ ] Add dependency management for apps
