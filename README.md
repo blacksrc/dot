@@ -100,5 +100,4 @@ All scripts use the logging functions in `utils.sh`:
 
 ## TODO
  - [ ] lazygit
- - [ ] docker
  - [ ] lazydocker
