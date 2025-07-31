@@ -30,10 +30,7 @@ Feel free to customize it to fit your own needs!
 
 EOF
 
-read -rp "👉 Proceed with installation? (y/N): " confirm
-confirm=${confirm,,}
-
-if [[ "$confirm" != "y" && "$confirm" != "yes" ]]; then
+if ! gum confirm "👉 Proceed with installation?"; then
   log_error "Installation aborted."
   exit 1
 fi
