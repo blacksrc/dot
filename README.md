@@ -1,9 +1,9 @@
-# dot
+# dot (WIP)
 
 A personal, automated setup and teardown toolkit for configuring a development environment on Ubuntu or Debian systems.  
 This project installs and configures essential tools and applications such as Oh My Zsh, NVM, Docker, Zen Browser, and more, using modular Bash scripts.
 
-<img width="927" height="880" alt="image" src="https://github.com/user-attachments/assets/46d1222d-2861-408a-be99-1f3fdb63621b" />
+<img width="1067" height="871" alt="image" src="https://github.com/user-attachments/assets/a2d2234b-d400-4146-b10a-d07680587546" />
 
 ---
 
@@ -138,6 +138,7 @@ MIT License. See [LICENSE](LICENSE).
 
 ## TODO
 
+- [ ] Make installation script dynamic
 - [ ] Add lazygit support
 - [ ] Add lazydocker support
 - [ ] Add dependency management for apps
