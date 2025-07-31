@@ -20,8 +20,8 @@ log_info "Installing Steam (using .deb package)..."
 dpkg -i "$STEAM_DEB_FILE" || true  # Allow errors for missing dependencies
 
 log_info "Fixing missing dependencies..."
-apt-get update -qq
-apt-get install -f -y
+apt update -qq
+apt install -f -y
 
 log_info "Cleaning up temporary files..."
 rm -f "$STEAM_DEB_FILE"
