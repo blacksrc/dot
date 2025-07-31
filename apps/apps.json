@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Bun",
+    "description": "Bun is a fast JavaScript runtime.",
+    "script": "bun.sh",
+    "asRoot": true
+  },
+  {
+    "name": "Docker",
+    "description": "Docker is a platform for developing, shipping, and running applications in containers.",
+    "script": "docker.sh",
+    "asRoot": false
+  },
+  {
+    "name": "Git",
+    "description": "Sets up Git with user information and SSH keys.",
+    "script": "git-setup.sh",
+    "asRoot": false
+  },
+  {
+    "name": "NVM",
+    "description": "NVM (Node Version Manager) allows you to manage multiple Node.js versions.",
+    "script": "nvm.sh",
+    "asRoot": true
+  },
+  {
+    "name": "Obsidian",
+    "description": "Obsidian is a powerful knowledge base on local Markdown files.",
+    "script": "obsidian.sh",
+    "asRoot": true
+  },
+  {
+    "name": "Oh My Zsh",
+    "description": "Oh My Zsh is a delightful community-driven framework for managing your Zsh configuration.",
+    "script": "omz.sh",
+    "asRoot": false
+  },
+  {
+    "name": "Steam",
+    "description": "Steam is a digital distribution platform for video games.",
+    "script": "steam.sh",
+    "asRoot": true
+  },
+  {
+    "name": "Telegram",
+    "description": "Telegram is a cloud-based instant messaging service.",
+    "script": "telegram.sh",
+    "asRoot": true
+  },
+  {    
+    "name": "VSCode",
+    "description": "Visual Studio Code is a source-code editor developed by Microsoft.",
+    "script": "vscode.sh",
+    "asRoot": true
+  },
+  {    
+    "name": "Zen Browser",
+    "description": "Zen Browser is a web browser focused on privacy and security.",
+    "script": "zen-browser.sh",
+    "asRoot": true
+  }
+]
