@@ -1,47 +1,61 @@
 #!/usr/bin/env bash
 set -e
-
 # shellcheck source=utils.sh
 source "$(dirname "$0")/utils.sh"
-
 target_user=$(logname)
 
-sudo bash "$(dirname "$0")/intro.sh"
-
+# Run initialize first (always)
 log_info "Running init.sh (System update & dependencies)..."
 sudo bash "$(dirname "$0")/init.sh"
 
-# log_info "Running bun.sh (Install bun-js)..."
-# sudo bash "$(dirname "$0")/apps/bun.sh"
+# Run gum installation
+log_info "Running gum.sh (Install gum)..."
+sudo bash "$(dirname "$0")/gum.sh"
+sudo bash "$(dirname "$0")/intro.sh"
 
-# log_info "Running zen-browser.sh (Zen installation)..."
-# sudo bash "$(dirname "$0")/apps/zen-browser.sh"
+# Define options as pairs: tag + description
+OPTIONS=(
+    "bun" "Install bun-js"
+    "zen" "Install Zen Browser"
+    "vscode" "Install VSCode"
+    "nvm" "Install NVM"
+    "steam" "Install Steam"
+    "telegram" "Install Telegram"
+    "obsidian" "Install Obsidian"
+    "omz" "Install Oh My Zsh"
+    "git" "Git Setup"
+    "docker" "Install Docker"
+    "cleanup" "Uninstall default apps (caution)"
+)
 
-# log_info "Running vscode.sh (VSCode installation)..."
-# sudo bash "$(dirname "$0")/apps/vscode.sh"
+# Build display options with combined tag and description
+CHOICE_DISPLAY=()
+for ((i=0; i<${#OPTIONS[@]}; i+=2)); do
+    tag="${OPTIONS[i]}"
+    desc="${OPTIONS[i+1]}"
+    CHOICE_DISPLAY+=("$tag - $desc")
+done
 
-# log_info "Running nvm.sh (NVM installation)..."
-# sudo bash "$(dirname "$0")/apps/nvm.sh"
+log_info "Select components to install (use space to toggle, enter to confirm):"
+SELECTED=$(gum choose --no-limit --header "Select components to install" "${CHOICE_DISPLAY[@]}")
 
-# log_info "Running steam.sh (Steam installation)..."
-# sudo bash "$(dirname "$0")/apps/steam.sh"
+if [ -z "$SELECTED" ]; then
+    log_info "User cancelled."
+    exit 1
+fi
 
-# log_info "Running telegram.sh (Telegram installation)..."
-# sudo bash "$(dirname "$0")/apps/telegram.sh"
+# Extract just the tags from selected items (everything before " - ")
+SELECTED_TAGS=()
+while IFS= read -r line; do
+    tag=$(echo "$line" | cut -d' ' -f1)
+    SELECTED_TAGS+=("$tag")
+done <<< "$SELECTED"
 
-# log_info "Running obsidian.sh (Obsidian installation)..."
-# sudo bash "$(dirname "$0")/apps/obsidian.sh"
-
-# log_info "Running omz.sh (Oh My Zsh installation)..."
-# sudo -u "$target_user" bash "$(dirname "$0")/apps/omz.sh"
-
-# log_info "Running git-setup.sh (Git setup)..."
-# sudo -u "$target_user" bash "$(dirname "$0")/apps/git-setup.sh"
-
-# log_info "Running docker.sh (Docker installation)..."
-# sudo -u "$target_user" bash "$(dirname "$0")/apps/docker.sh"
+# Now you can use SELECTED_TAGS array for your installation logic
+# For example:
+for tag in "${SELECTED_TAGS[@]}"; do
+    log_info "Processing: $tag"
+    # Add your installation logic here based on the tag
+done
 
 log_success "🎉 All tasks completed successfully!"
-
-# log_info "Cleaning up..."
-# sudo bash "$(dirname "$0")/uninstall.sh"
