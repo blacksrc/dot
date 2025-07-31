@@ -28,6 +28,9 @@ sudo bash "$(dirname "$0")/intro.sh"
 # log_info "Running telegram.sh (Telegram installation)..."
 # sudo bash "$(dirname "$0")/apps/telegram.sh"
 
+# log_info "Running obsidian.sh (Obsidian installation)..."
+# sudo bash "$(dirname "$0")/apps/obsidian.sh"
+
 # log_info "Running omz.sh (Oh My Zsh installation)..."
 # sudo -u "$target_user" bash "$(dirname "$0")/apps/omz.sh"
 
