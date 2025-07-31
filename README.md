@@ -140,3 +140,7 @@ MIT License. See [LICENSE](LICENSE).
 
 - [ ] Add lazygit support
 - [ ] Add lazydocker support
+- [ ] Add dependency management for apps
+    <br /> E.g., check if Docker is installed before installing lazydocker
+- [ ] Accumulate logs to show at the end of the installation process
+    <br /> E.g., docker needs a gnome-session restart to work properly
