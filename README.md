@@ -3,7 +3,7 @@
 A personal, automated setup and teardown toolkit for configuring a development environment on Ubuntu or Debian systems.  
 This project installs and configures essential tools and applications such as Oh My Zsh, NVM, Docker, Zen Browser, and more, using modular Bash scripts.
 
-<img width="1067" height="871" alt="image" src="https://github.com/user-attachments/assets/a2d2234b-d400-4146-b10a-d07680587546" />
+<img width="1061" height="835" alt="image" src="https://github.com/user-attachments/assets/578000c7-55a7-43cc-a97e-d0ac75396db5" />
 
 ---
 
