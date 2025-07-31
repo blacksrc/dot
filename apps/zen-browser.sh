@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-# Load utils
+# shellcheck source=../utils.sh
 source "$(dirname "$0")/../utils.sh"
 
 LATEST_URL="https://github.com/zen-browser/desktop/releases/download/1.14.5b/zen.linux-x86_64.tar.xz"

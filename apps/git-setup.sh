@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-# Load utils
+# shellcheck source=../utils.sh
 source "$(dirname "$0")/../utils.sh"
 
 if [[ "$EUID" -eq 0 ]]; then

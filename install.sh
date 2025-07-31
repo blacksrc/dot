@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
+# shellcheck source=utils.sh
 source "$(dirname "$0")/utils.sh"
 
 target_user=$(logname)
