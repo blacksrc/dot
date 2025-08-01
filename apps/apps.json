@@ -1,5 +1,11 @@
 [
   {
+    "name": "Htop",
+    "description": "Htop is an interactive process viewer for Unix systems.",
+    "script": "htop.sh",
+    "asRoot": true
+  },
+  {
     "name": "Bun",
     "description": "Bun is a fast JavaScript runtime.",
     "script": "bun.sh",
