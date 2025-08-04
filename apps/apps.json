@@ -18,6 +18,12 @@
     "asRoot": false
   },
   {
+    "name": "fzf",
+    "description": "fzf is a command-line fuzzy finder.",
+    "script": "fzf.sh",
+    "asRoot": false
+  },
+  {
     "name": "Git",
     "description": "Sets up Git with user information and SSH keys.",
     "script": "git-setup.sh",
