@@ -12,6 +12,12 @@
     "asRoot": true
   },
   {
+    "name": "Chrome",
+    "description": "Google Chrome is a web browser developed by Google.",
+    "script": "chrome.sh",
+    "asRoot": true
+  },
+  {
     "name": "Docker",
     "description": "Docker is a platform for developing, shipping, and running applications in containers.",
     "script": "docker.sh",
