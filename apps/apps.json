@@ -24,6 +24,12 @@
     "asRoot": false
   },
   {
+    "name": "Gimp",
+    "description": "Gimp is a free and open-source image editor.",
+    "script": "gimp.sh",
+    "asRoot": true
+  },
+  {
     "name": "NVM",
     "description": "NVM (Node Version Manager) allows you to manage multiple Node.js versions.",
     "script": "nvm.sh",
