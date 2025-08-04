@@ -77,6 +77,12 @@
     "script": "vscode.sh",
     "asRoot": true
   },
+  {
+    "name": "Yarn",
+    "description": "Yarn is a package manager for JavaScript that helps you manage your dependencies.",
+    "script": "yarn.sh",
+    "asRoot": true
+  },
   {    
     "name": "Zen Browser",
     "description": "Zen Browser is a web browser focused on privacy and security.",
