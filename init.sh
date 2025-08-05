@@ -15,7 +15,7 @@ apt update && apt full-upgrade -y
 log_success "OS has been updated"
 
 log_info "Installing initial dependencies..."
-apt install -y wget curl ca-certificates gnupg dbus-x11 jq 
+apt install -y wget curl ca-certificates gnupg dbus-x11 jq gnome-browser-connector 
 log_success "Initial dependencies have been installed"
 
 
