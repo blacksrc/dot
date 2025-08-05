@@ -54,6 +54,12 @@
     "asRoot": true
   },
   {
+    "name": "NordVPN",
+    "description": "NordVPN is a virtual private network service provider.",
+    "script": "nordvpn.sh",
+    "asRoot": true
+  },
+  {
     "name": "Obsidian",
     "description": "Obsidian is a powerful knowledge base on local Markdown files.",
     "script": "obsidian.sh",
