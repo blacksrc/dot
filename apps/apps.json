@@ -42,6 +42,12 @@
     "asRoot": true
   },
   {
+    "name": "LazyDocker",
+    "description": "LazyDocker is a simple terminal UI for Docker and Docker Compose.",
+    "script": "lazydocker.sh",
+    "asRoot": false
+  },
+  {
     "name": "NVM",
     "description": "NVM (Node Version Manager) allows you to manage multiple Node.js versions.",
     "script": "nvm.sh",

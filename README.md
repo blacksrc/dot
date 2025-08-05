@@ -9,7 +9,7 @@ This project installs and configures essential tools and applications such as Oh
 
 ## Table of Contents
 
-- [dot (WIP)](#dot-wip)
+- [dot](#dot)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Directory Structure](#directory-structure)
@@ -141,7 +141,7 @@ MIT License. See [LICENSE](LICENSE).
 
 - [x] Make installation script dynamic
 - [ ] Add lazygit support
-- [ ] Add lazydocker support
+- [x] Add lazydocker support
 - [ ] Add dependency management for apps
     <br /> E.g., check if Docker is installed before installing lazydocker
 - [ ] Accumulate logs to show at the end of the installation process
