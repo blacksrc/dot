@@ -78,6 +78,12 @@
     "asRoot": true
   },
   {
+    "name": "Spotify",
+    "description": "Spotify is a digital music service that gives you access to millions of songs.",
+    "script": "spotify.sh",
+    "asRoot": true
+  },
+  {
     "name": "Telegram",
     "description": "Telegram is a cloud-based instant messaging service.",
     "script": "telegram.sh",
