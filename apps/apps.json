@@ -112,5 +112,11 @@
     "description": "Zen Browser is a web browser focused on privacy and security.",
     "script": "zen-browser.sh",
     "asRoot": true
+  },
+  {
+    "name": "Zsa",
+    "description": "Zsa is a keyboard firmware and configuration tool.",
+    "script": "zsa.sh",
+    "asRoot": true
   }
 ]
