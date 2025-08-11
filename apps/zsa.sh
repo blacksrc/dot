@@ -66,5 +66,47 @@ log_info "Reloading udev rules..."
 udevadm control --reload-rules
 udevadm trigger
 
+# Download and install the latest Keymapp
+log_info "Downloading and installing Keymapp (latest)..."
+TMP_TAR="/tmp/keymapp-latest.tar.gz"
+wget -qO "$TMP_TAR" "https://oryx.nyc3.cdn.digitaloceanspaces.com/keymapp/keymapp-latest.tar.gz" || {
+  log_error "Failed to download Keymapp archive."
+  exit 1
+}
+
+mkdir -p /tmp/keymapp_extracted
+tar -xzf "$TMP_TAR" -C /tmp/keymapp_extracted
+chmod +x /tmp/keymapp_extracted/keymapp
+mv /tmp/keymapp_extracted/keymapp /usr/local/bin/keymapp
+rm -rf /tmp/keymapp_extracted "$TMP_TAR"
+log_success "Installed Keymapp to /usr/local/bin/keymapp"
+
+log_info "Creating Keymapp desktop entry..."
+cat > /usr/share/applications/keymapp.desktop << 'EOF'
+[Desktop Entry]
+Name=Keymapp
+Comment=ZSA Keyboard Keymapping Tool
+Exec=/usr/local/bin/keymapp
+Icon=keymapp
+Terminal=false
+Type=Application
+Categories=Utility;
+EOF
+
+# Install icon if available in tarball
+if [[ -f /tmp/keymapp_extracted/keymapp.png ]]; then
+  cp /tmp/keymapp_extracted/keymapp.png /usr/share/icons/hicolor/256x256/apps/keymapp.png
+  log_success "Installed Keymapp icon."
+else
+  log_warning "No icon found in package. You can add one later at /usr/share/icons/hicolor/256x256/apps/keymapp.png"
+fi
+
+# Refresh desktop database
+if command -v update-desktop-database &>/dev/null; then
+  update-desktop-database /usr/share/applications
+fi
+
 log_success "Your system is now configured for flashing ZSA keyboards using Oryx, Keymapp, or Wally."
-log_info "You may need to log out and back in—or run 'newgrp plugdev' in your session—to apply group changes."
+log_info "Run 'keymapp' to launch the application."
+log_info "To activate device permissions without reboot, run:"
+echo "  newgrp plugdev"
