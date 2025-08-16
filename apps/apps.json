@@ -118,5 +118,11 @@
     "description": "Zsa is a keyboard firmware and configuration tool.",
     "script": "zsa.sh",
     "asRoot": true
+  },
+  {
+    "name": "Cursor",
+    "description": "Cursor is an AI-powered, open-source code editor.",
+    "script": "cursor.sh",
+    "asRoot": true
   }
 ]
