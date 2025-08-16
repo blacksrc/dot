@@ -118,5 +118,11 @@
     "description": "Zsa is a keyboard firmware and configuration tool.",
     "script": "zsa.sh",
     "asRoot": true
+  },
+  {
+    "name": "jq",
+    "description": "jq is a command-line JSON processor.",
+    "script": "jq.sh",
+    "asRoot": true
   }
 ]
