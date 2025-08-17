@@ -19,6 +19,18 @@ if ! command -v curl &>/dev/null; then
   exit 1
 fi
 
+# if libfuse2 is not installed, install it
+if ! dpkg -l | grep -q libfuse2; then
+  log_info "Installing libfuse2..."
+  apt install -y libfuse2 || {
+    log_error "Failed to install libfuse2. Please install it manually and re-run this script."
+    exit 1
+  }
+  log_success "libfuse2 has been installed"
+else
+  log_info "libfuse2 is already installed"
+fi 
+
 # Installation paths
 INSTALL_DIR="/opt/cursor"
 APPIMAGE_PATH="$INSTALL_DIR/cursor.AppImage"
