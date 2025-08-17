@@ -36,8 +36,8 @@ while IFS= read -r row; do
   MAP_TAG_TO_ASROOT["$name"]="$as_root"
 done < <(jq -c '.[]' "$APP_JSON")
 
-log_info "Select components to install (use space to toggle, enter to confirm):"
-SELECTED=$(gum choose --no-limit --header "Select components to install" "${CHOICE_DISPLAY[@]}")
+log_info "Select apps to install (use space to toggle, enter to confirm):"
+SELECTED=$(gum choose --no-limit --header "Select apps to install" "${CHOICE_DISPLAY[@]}")
 
 if [ -z "$SELECTED" ]; then
   log_info "User cancelled."
@@ -60,6 +60,7 @@ for tag in "${SELECTED_TAGS[@]}"; do
   fi
 
   log_info "🔧 Running $tag ($script)..."
+  
   if [[ "$as_root" == "true" ]]; then
     sudo bash "$(dirname "$0")/apps/$script"
   else
