@@ -120,9 +120,15 @@
     "asRoot": true
   },
   {
+    "name": "Terminator",
+    "description": "Terminator is a terminal emulator that supports multiple terminals in one window.",
+    "script": "terminator.sh",
+    "asRoot": true
+  },
+  {
     "name": "Cursor",
     "description": "Cursor is an AI-powered, open-source code editor.",
     "script": "cursor.sh",
     "asRoot": true
   }
-]
+] 
