@@ -1,11 +1,5 @@
 [
   {
-    "name": "Htop",
-    "description": "Htop is an interactive process viewer for Unix systems.",
-    "script": "htop.sh",
-    "asRoot": true
-  },
-  {
     "name": "Bun",
     "description": "Bun is a fast JavaScript runtime.",
     "script": "bun.sh",
@@ -18,16 +12,22 @@
     "asRoot": true
   },
   {
+    "name": "Cursor",
+    "description": "Cursor is an AI-powered, open-source code editor.",
+    "script": "cursor.sh",
+    "asRoot": true
+  },
+  {
     "name": "Docker",
     "description": "Docker is a platform for developing, shipping, and running applications in containers.",
     "script": "docker.sh",
     "asRoot": false
   },
   {
-    "name": "fzf",
-    "description": "fzf is a command-line fuzzy finder.",
-    "script": "fzf.sh",
-    "asRoot": false
+    "name": "Gimp",
+    "description": "Gimp is a free and open-source image editor.",
+    "script": "gimp.sh",
+    "asRoot": true
   },
   {
     "name": "Git",
@@ -36,9 +36,9 @@
     "asRoot": false
   },
   {
-    "name": "Gimp",
-    "description": "Gimp is a free and open-source image editor.",
-    "script": "gimp.sh",
+    "name": "Htop",
+    "description": "Htop is an interactive process viewer for Unix systems.",
+    "script": "htop.sh",
     "asRoot": true
   },
   {
@@ -72,15 +72,15 @@
     "asRoot": false
   },
   {
-    "name": "Steam",
-    "description": "Steam is a digital distribution platform for video games.",
-    "script": "steam.sh",
-    "asRoot": true
-  },
-  {
     "name": "Spotify",
     "description": "Spotify is a digital music service that gives you access to millions of songs.",
     "script": "spotify.sh",
+    "asRoot": true
+  },
+  {
+    "name": "Steam",
+    "description": "Steam is a digital distribution platform for video games.",
+    "script": "steam.sh",
     "asRoot": true
   },
   {
@@ -90,12 +90,18 @@
     "asRoot": true
   },
   {
+    "name": "Terminator",
+    "description": "Terminator is a terminal emulator that supports multiple terminals in one window.",
+    "script": "terminator.sh",
+    "asRoot": true
+  },
+  {
     "name": "VLC Player",
     "description": "VLC Media Player is a free and open-source media player that supports various audio and video formats.",
     "script": "vlc.sh",
     "asRoot": true
   },
-  {    
+  {
     "name": "VSCode",
     "description": "Visual Studio Code is a source-code editor developed by Microsoft.",
     "script": "vscode.sh",
@@ -107,7 +113,7 @@
     "script": "yarn.sh",
     "asRoot": true
   },
-  {    
+  {
     "name": "Zen Browser",
     "description": "Zen Browser is a web browser focused on privacy and security.",
     "script": "zen-browser.sh",
@@ -120,15 +126,9 @@
     "asRoot": true
   },
   {
-    "name": "Terminator",
-    "description": "Terminator is a terminal emulator that supports multiple terminals in one window.",
-    "script": "terminator.sh",
-    "asRoot": true
-  },
-  {
-    "name": "Cursor",
-    "description": "Cursor is an AI-powered, open-source code editor.",
-    "script": "cursor.sh",
-    "asRoot": true
+    "name": "fzf",
+    "description": "fzf is a command-line fuzzy finder.",
+    "script": "fzf.sh",
+    "asRoot": false
   }
-] 
+]
