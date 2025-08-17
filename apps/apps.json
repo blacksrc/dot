@@ -118,5 +118,11 @@
     "description": "Zsa is a keyboard firmware and configuration tool.",
     "script": "zsa.sh",
     "asRoot": true
+  },
+  {
+    "name": "Terminator",
+    "description": "Terminator is a terminal emulator that supports multiple terminals in one window.",
+    "script": "terminator.sh",
+    "asRoot": true
   }
-]
+] 
