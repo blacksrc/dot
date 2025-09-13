@@ -6,6 +6,12 @@
     "asRoot": true
   },
   {
+    "name": "Cargo",
+    "description": "Cargo is the Rust package manager and build system.",
+    "script": "cargo.sh",
+    "asRoot": false
+  },
+  {
     "name": "Chrome",
     "description": "Google Chrome is a web browser developed by Google.",
     "script": "chrome.sh",
