@@ -30,7 +30,7 @@ This project installs and configures essential tools and applications such as Oh
 
 - **Automated Installation**: Installs development tools and apps with a single command.
 - **Modular Scripts**: Each app or tool has its own script in `apps/`.
-- **Uninstall Support**: Cleanly remove installed applications.
+- **Uninstall Support**: Cleanly remove installed applications (wip).
 - **User-Friendly Logging**: Informative, emoji-enhanced log output.
 - **Safe Defaults**: Prompts for confirmation before making changes.
 - **Easily Extensible**: Add or remove apps by editing the `apps/` directory.
@@ -86,7 +86,7 @@ This project installs and configures essential tools and applications such as Oh
    - You will see an introduction and be prompted to confirm.
    - The script will run `init.sh` (system update), then install apps via scripts in `apps/`.
 
-### Uninstallation
+### Uninstallation (wip)
 
 To remove installed applications:
 
@@ -117,7 +117,7 @@ These provide clear, color-coded, and emoji-enhanced output for better readabili
 
 - **Add/Remove Apps:**  
   Place your install/uninstall scripts in the `apps/` directory. Each script should be executable and follow the existing conventions.
-- **Control Uninstallation:**  
+- **Control Uninstallation (wip):**
   Edit the `APPS` array in `uninstall.sh` to control what gets uninstalled.
 - **Register your app:**  
   Add your app to `apps/apps.json` to include it in the installation process.
