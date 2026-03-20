@@ -16,7 +16,7 @@ CURRENT_USER=$(logname 2>/dev/null || echo "$USER")
 
 log_info "🗝️ Adding Docker's official GPG key..."
 $SUDO_CMD mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | $SUDO_CMD gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL "https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg" | $SUDO_CMD gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 log_info "📋 Setting up Docker repository..."
 echo \

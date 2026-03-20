@@ -10,7 +10,7 @@ if [[ "$EUID" -ne 0 ]]; then
   exit 1
 fi
 
-read -p "Do you want to run the uninstall script? (y/n): " answer
+read -rp "Do you want to run the uninstall script? (y/n): " answer
 
 if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
   # List of applications to uninstall
