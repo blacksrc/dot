@@ -52,6 +52,7 @@ log_info "Adding users to 'plugdev' group to allow hardware access..."
 groupadd -f plugdev
 
 for userHome in /home/*; do
+  [[ -d "$userHome" ]] || continue
   user=$(basename "$userHome")
   if id "$user" &>/dev/null; then
     usermod -aG plugdev "$user"
@@ -69,6 +70,7 @@ udevadm trigger
 # Download and install the latest Keymapp
 log_info "Downloading and installing Keymapp (latest)..."
 TMP_TAR="/tmp/keymapp-latest.tar.gz"
+trap 'rm -rf /tmp/keymapp_extracted "$TMP_TAR"' EXIT
 wget -qO "$TMP_TAR" "https://oryx.nyc3.cdn.digitaloceanspaces.com/keymapp/keymapp-latest.tar.gz" || {
   log_error "Failed to download Keymapp archive."
   exit 1
@@ -77,6 +79,16 @@ wget -qO "$TMP_TAR" "https://oryx.nyc3.cdn.digitaloceanspaces.com/keymapp/keymap
 mkdir -p /tmp/keymapp_extracted
 tar -xzf "$TMP_TAR" -C /tmp/keymapp_extracted
 chmod +x /tmp/keymapp_extracted/keymapp
+
+# Install icon if available in tarball (must happen before cleanup)
+if [[ -f /tmp/keymapp_extracted/keymapp.png ]]; then
+  mkdir -p /usr/share/icons/hicolor/256x256/apps
+  cp /tmp/keymapp_extracted/keymapp.png /usr/share/icons/hicolor/256x256/apps/keymapp.png
+  log_success "Installed Keymapp icon."
+else
+  log_warning "No icon found in package. You can add one later at /usr/share/icons/hicolor/256x256/apps/keymapp.png"
+fi
+
 mv /tmp/keymapp_extracted/keymapp /usr/local/bin/keymapp
 rm -rf /tmp/keymapp_extracted "$TMP_TAR"
 log_success "Installed Keymapp to /usr/local/bin/keymapp"
@@ -92,14 +104,6 @@ Terminal=false
 Type=Application
 Categories=Utility;
 EOF
-
-# Install icon if available in tarball
-if [[ -f /tmp/keymapp_extracted/keymapp.png ]]; then
-  cp /tmp/keymapp_extracted/keymapp.png /usr/share/icons/hicolor/256x256/apps/keymapp.png
-  log_success "Installed Keymapp icon."
-else
-  log_warning "No icon found in package. You can add one later at /usr/share/icons/hicolor/256x256/apps/keymapp.png"
-fi
 
 # Refresh desktop database
 if command -v update-desktop-database &>/dev/null; then

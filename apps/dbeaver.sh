@@ -20,6 +20,7 @@ done
 
 DBEAVER_DEB_URL="https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb"
 DBEAVER_DEB_FILE="/tmp/dbeaver.deb"
+trap 'rm -f "$DBEAVER_DEB_FILE"' EXIT
 
 log_info "Downloading DBeaver from $DBEAVER_DEB_URL..."
 curl -fsSL "$DBEAVER_DEB_URL" -o "$DBEAVER_DEB_FILE"

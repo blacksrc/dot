@@ -42,6 +42,12 @@
     "asRoot": true
   },
   {
+    "name": "GitHub CLI",
+    "description": "GitHub CLI brings GitHub to your terminal.",
+    "script": "gh.sh",
+    "asRoot": true
+  },
+  {
     "name": "Git",
     "description": "Sets up Git with user information and SSH keys.",
     "script": "git-setup.sh",
@@ -57,7 +63,7 @@
     "name": "LazyDocker",
     "description": "LazyDocker is a simple terminal UI for Docker and Docker Compose.",
     "script": "lazydocker.sh",
-    "asRoot": false
+    "asRoot": true
   },
   {
     "name": "NVM",
@@ -141,6 +147,6 @@
     "name": "fzf",
     "description": "fzf is a command-line fuzzy finder.",
     "script": "fzf.sh",
-    "asRoot": false
+    "asRoot": true
   }
 ]

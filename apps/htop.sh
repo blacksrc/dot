@@ -11,5 +11,5 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 log_info "Installing Htop..."
-sudo apt install htop -y
+apt install htop -y
 log_success "Htop has been installed"

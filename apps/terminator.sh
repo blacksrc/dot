@@ -11,5 +11,5 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 log_info "Installing Terminator..."
-sudo apt install terminator -y
+apt install terminator -y
 log_success "Terminator has been installed successfully"

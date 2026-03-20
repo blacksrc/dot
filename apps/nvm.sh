@@ -27,6 +27,7 @@ EOF
 log_info "Updating all users' .bashrc and .zshrc files..."
 
 for userhome in /home/*; do
+  [[ -d "$userhome" ]] || continue
   for rc in ".bashrc" ".zshrc"; do
     rc_path="$userhome/$rc"
     if [[ -f "$rc_path" ]] && ! grep -q 'export NVM_DIR="/usr/local/nvm"' "$rc_path"; then

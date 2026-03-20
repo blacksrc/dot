@@ -20,6 +20,7 @@ done
 
 CHROME_DEB_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 CHROME_DEB_FILE="/tmp/google-chrome.deb"
+trap 'rm -f "$CHROME_DEB_FILE"' EXIT
 
 log_info "Downloading Google Chrome from $CHROME_DEB_URL..."
 curl -fsSL "$CHROME_DEB_URL" -o "$CHROME_DEB_FILE"

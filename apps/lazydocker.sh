@@ -38,6 +38,7 @@ if [[ -z "$LATEST_URL" ]]; then
 fi
 
 TMP_DIR="/tmp/lazydocker_install"
+trap 'rm -rf "$TMP_DIR"' EXIT
 mkdir -p "$TMP_DIR"
 
 log_info "Downloading lazydocker from: $LATEST_URL"

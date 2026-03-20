@@ -12,6 +12,7 @@ fi
 
 STEAM_DEB_URL="https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb"
 STEAM_DEB_FILE="/tmp/steam.deb"
+trap 'rm -f "$STEAM_DEB_FILE"' EXIT
 
 log_info "Downloading Steam package from $STEAM_DEB_URL..."
 curl -fsSL "$STEAM_DEB_URL" -o "$STEAM_DEB_FILE"

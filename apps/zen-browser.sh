@@ -4,7 +4,6 @@ set -e
 # shellcheck source=../utils.sh
 source "$(dirname "$0")/../utils.sh"
 
-LATEST_URL="https://github.com/zen-browser/desktop/releases/download/1.14.5b/zen.linux-x86_64.tar.xz"
 INSTALL_DIR="/opt/zen"
 SYMLINK="/usr/bin/zen"
 DESKTOP_DIR="/usr/share/applications"
@@ -12,12 +11,22 @@ DESKTOP_FILE="$DESKTOP_DIR/zen.desktop"
 TMP_ARCHIVE="/tmp/zen-browser.tar.xz"
 
 if [[ "$EUID" -ne 0 ]]; then
-  Log_warning "Please run zen-browser.sh as root (e.g. sudo)"
+  log_warning "Please run zen-browser.sh as root (e.g. sudo)"
   exit 1
 fi
 
-log_info "Downloading Zen Browser..."
-wget --progress=bar:force -O "$TMP_ARCHIVE" "$LATEST_URL"
+trap 'rm -f "$TMP_ARCHIVE"' EXIT
+
+log_info "Fetching latest Zen Browser version..."
+LATEST_VERSION=$(curl -fsSL https://api.github.com/repos/zen-browser/desktop/releases/latest | jq -r '.tag_name')
+if [[ -z "$LATEST_VERSION" || "$LATEST_VERSION" == "null" ]]; then
+  log_error "Could not determine latest Zen Browser version."
+  exit 1
+fi
+LATEST_URL="https://github.com/zen-browser/desktop/releases/download/${LATEST_VERSION}/zen.linux-x86_64.tar.xz"
+
+log_info "Downloading Zen Browser ${LATEST_VERSION}..."
+curl -fsSL -o "$TMP_ARCHIVE" "$LATEST_URL"
 log_success "Downloaded latest release."
 
 log_info "Installing Zen Browser to $INSTALL_DIR..."
@@ -42,7 +51,7 @@ mkdir -p "$DESKTOP_DIR"
 ICON_PATH="$INSTALL_DIR/zen/browser/chrome/icons/default/default128.png"
 
 if [[ -f "$ICON_PATH" ]]; then
-  sudo cp "$ICON_PATH" /usr/share/pixmaps/zen.png
+  cp "$ICON_PATH" /usr/share/pixmaps/zen.png
   ICON_NAME="zen"
 else
   ICON_NAME="web-browser"

@@ -11,6 +11,7 @@ fi
 
 OBSIDIAN_URL="https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest"
 TEMP_DEB="/tmp/obsidian-latest.deb"
+trap 'rm -f "$TEMP_DEB"' EXIT
 
 log_info "📦 Fetching latest Obsidian release info..."
 DOWNLOAD_URL=$(curl -s "$OBSIDIAN_URL" | grep "browser_download_url" | grep "amd64.deb" | cut -d '"' -f 4)

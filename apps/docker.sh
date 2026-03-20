@@ -34,14 +34,23 @@ log_info "👥 Adding user '$CURRENT_USER' to the docker group to run docker wit
 $SUDO_CMD usermod -aG docker "$CURRENT_USER"
 
 
-log_info "🚀 Launching new terminal with updated group (docker)... Close the terminal manually if it's not closed"
-gnome-terminal --title="Docker Shell" -- bash -c 'newgrp docker; sleep 2; exec bash'
+if command -v gnome-terminal &>/dev/null; then
+  log_info "🚀 Launching new terminal with updated group (docker)..."
+  gnome-terminal --title="Docker Shell" -- bash -c 'newgrp docker; sleep 2; exec bash'
+else
+  log_warning "Run 'newgrp docker' or log out and back in to use Docker without sudo."
+fi
 
 log_info "🔌 Installing Docker Buildx plugin (usually bundled but let's ensure)..."
-mkdir -p ~/.docker/cli-plugins
-BUILDX_VERSION=$(curl -s https://api.github.com/repos/docker/buildx/releases/latest | grep tag_name | cut -d '"' -f 4)
-BUILDX_BIN="$HOME/.docker/cli-plugins/docker-buildx"
-curl -L "https://github.com/docker/buildx/releases/download/$BUILDX_VERSION/buildx-$BUILDX_VERSION.linux-amd64" -o "$BUILDX_BIN"
-chmod +x "$BUILDX_BIN"
+USER_HOME=$(getent passwd "$CURRENT_USER" | cut -d: -f6)
+BUILDX_VERSION=$(curl -fsSL https://api.github.com/repos/docker/buildx/releases/latest | jq -r '.tag_name')
+if [[ -z "$BUILDX_VERSION" || "$BUILDX_VERSION" == "null" ]]; then
+  log_warning "Could not determine latest Buildx version. Skipping Buildx installation."
+else
+  mkdir -p "$USER_HOME/.docker/cli-plugins"
+  BUILDX_BIN="$USER_HOME/.docker/cli-plugins/docker-buildx"
+  curl -fsSL "https://github.com/docker/buildx/releases/download/$BUILDX_VERSION/buildx-$BUILDX_VERSION.linux-amd64" -o "$BUILDX_BIN"
+  chmod +x "$BUILDX_BIN"
+fi
 
 log_success "✅ Docker, Docker Compose, and plugins installed successfully!"

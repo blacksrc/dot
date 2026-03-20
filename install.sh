@@ -4,7 +4,7 @@ set -e
 # shellcheck source=utils.sh
 source "$(dirname "$0")/utils.sh"
 
-target_user=$(logname)
+target_user=$(logname 2>/dev/null || echo "${SUDO_USER:-$USER}")
 
 log_info "Running init.sh (System update & dependencies)..."
 sudo bash "$(dirname "$0")/init.sh"
@@ -64,10 +64,9 @@ for tag in "${SELECTED_TAGS[@]}"; do
   if [[ "$as_root" == "true" ]]; then
     sudo bash "$(dirname "$0")/apps/$script"
   else
-    bash "$(dirname "$0")/apps/$script"
+    sudo -u "$target_user" bash "$(dirname "$0")/apps/$script"
   fi
 
-  sleep 1
 done
 
 log_success "🎉 All selected tasks completed!"

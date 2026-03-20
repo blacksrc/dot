@@ -15,10 +15,10 @@ apt update && apt full-upgrade -y
 log_success "OS has been updated"
 
 log_info "Installing initial dependencies..."
-apt install -y wget curl ca-certificates gnupg dbus-x11 jq gnome-browser-connector 
+apt install -y wget curl ca-certificates gnupg dbus-x11 jq git gnome-browser-connector
 log_success "Initial dependencies have been installed"
 
 
 log_info "Creating application directory"
-sudo mkdir -p /usr/local/share/applications
+mkdir -p /usr/local/share/applications
 log_success "Application directory has been created"
