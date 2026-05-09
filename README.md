@@ -73,10 +73,11 @@ sudo bash uninstall.sh
 
 ## Included Apps & Tools
 
-The installer currently supports **25 apps**. Each can be toggled on or off during installation.
+The installer currently supports **26 apps**. Each can be toggled on or off during installation.
 
 | App | Description |
 |-----|-------------|
+| Brave | Privacy-focused Chromium-based browser |
 | Bun | Fast JavaScript runtime |
 | Cargo | Rust package manager and build system |
 | Chrome | Google Chrome browser |
@@ -111,6 +112,7 @@ The installer currently supports **25 apps**. Each can be toggled on or off duri
 .
 ├── apps/                  # App-specific install scripts
 │   ├── apps.json          # App registry (name, description, script, root requirement)
+│   ├── brave.sh
 │   ├── bun.sh
 │   ├── cargo.sh
 │   ├── chrome.sh

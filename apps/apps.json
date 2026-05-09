@@ -6,6 +6,12 @@
     "asRoot": true
   },
   {
+    "name": "Brave",
+    "description": "Brave is a privacy-focused web browser based on Chromium.",
+    "script": "brave.sh",
+    "asRoot": true
+  },
+  {
     "name": "Cargo",
     "description": "Cargo is the Rust package manager and build system.",
     "script": "cargo.sh",
